@@ -130,6 +130,9 @@ if __name__ == "__main__":
         for _ in range(500):
             if grid.q % 1 == 0:
                 print("{0} {1:.4f}".format(grid.q, grid.calc_energy()))
+
+                print(grid.ez[80] / grid.hy[80])
+
                 yield grid.q
             grid.step()
 

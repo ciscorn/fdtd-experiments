@@ -23,8 +23,8 @@ class Grid:
         self.setup()
 
     def calc_energy(self):
-        a = np.sum(C_0 * self.eps_r / IMP_0 * (self.ez ** 2))
-        b = np.sum((C_0 * self.mu_r * IMP_0 * (self.hy ** 2))[:-1])
+        a = np.sum(self.eps_r / IMP_0 * (self.ez ** 2))
+        b = np.sum((self.mu_r * IMP_0 * (self.hy ** 2))[:-1])
         return (a + b) / 2
 
     def step(self):
@@ -100,7 +100,7 @@ if __name__ == "__main__":
     def step():
         for _ in range(500):
             if grid.q % 1 == 0:
-                print("{0} {1:.4f}".format(grid.q, grid.calc_energy()))
+                print("{0} {1:.4e}".format(grid.q, grid.calc_energy()))
                 yield grid.q
             grid.step()
 
